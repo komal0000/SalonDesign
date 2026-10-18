@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxe Beauty Studio — Choose Your Design Direction</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FAF7F2;--text:#2D2926;--muted:#8B7D6B;--gold:#C9A96E;--card:#fff;--radius:20px}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500}
+
+/* Hero */
+.sel-hero{min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 60px;position:relative}
+.sel-hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(201,169,110,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.sel-hero .label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:4px;color:var(--gold);margin-bottom:16px}
+.sel-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:16px;line-height:1.15}
+.sel-hero h1 em{font-style:italic;color:var(--gold)}
+.sel-hero p{max-width:560px;margin:0 auto;color:var(--muted);font-size:1.05rem}
+
+/* Grid */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section-head{text-align:center;margin-bottom:48px}
+.section-head .label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:10px;display:block}
+.section-head h2{font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:10px}
+.section-head p{color:var(--muted);max-width:500px;margin:0 auto;font-size:.95rem}
+.designs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px;padding-bottom:100px}
+
+/* Card */
+.design-card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px rgba(45,41,38,0.06);transition:.4s cubic-bezier(.25,.46,.45,.94);position:relative}
+.design-card:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(45,41,38,0.12)}
+.card-preview{height:220px;position:relative;overflow:hidden}
+.card-preview img{width:100%;height:100%;object-fit:cover;transition:.5s ease}
+.design-card:hover .card-preview img{transform:scale(1.06)}
+.card-badge{position:absolute;top:16px;left:16px;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);padding:6px 14px;border-radius:50px;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.card-body{padding:28px}
+.card-body h3{font-size:1.3rem;margin-bottom:8px}
+.card-body .tagline{font-size:.85rem;color:var(--gold);font-style:italic;margin-bottom:12px;display:block;font-family:'Playfair Display',serif}
+.card-body p{font-size:.88rem;color:var(--muted);margin-bottom:20px;line-height:1.7}
+.color-swatches{display:flex;gap:6px;margin-bottom:20px}
+.swatch{width:28px;height:28px;border-radius:50%;border:2px solid rgba(0,0,0,0.06)}
+.card-btn{display:block;text-align:center;padding:14px;border-radius:50px;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;text-decoration:none;transition:.3s ease}
+.card-btn.primary{background:var(--text);color:var(--bg)}
+.card-btn.primary:hover{background:var(--gold)}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.card-tags span{font-size:.68rem;padding:4px 10px;border-radius:50px;border:1px solid rgba(139,125,107,0.2);color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+
+/* Recommendation */
+.recommendation{background:var(--text);color:var(--bg);padding:80px 24px;text-align:center}
+.recommendation h2{color:#fff;font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:16px}
+.recommendation p{color:rgba(255,255,255,0.6);max-width:600px;margin:0 auto 28px;font-size:.95rem;line-height:1.8}
+.rec-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--text);padding:12px 28px;border-radius:50px;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;text-decoration:none;transition:.3s}
+.rec-badge:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,110,0.4)}
+
+/* Footer */
+.sel-footer{text-align:center;padding:32px;color:var(--muted);font-size:.8rem}
+
+@media(max-width:768px){
+  .designs-grid{grid-template-columns:1fr}
+  .card-preview{height:180px}
+}
+</style>
+</head>
+<body>
+
+<section class="sel-hero">
+  <div>
+    <div class="label">Design Direction Showcase</div>
+    <h1>Choose Your <em>Beauty Studio</em><br>Website Design</h1>
+    <p>Five premium design concepts combining luxury bridal elegance and Korean minimal beauty. Each variation offers a unique visual identity for your Makeup & Nail Studio.</p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="section-head">
+    <span class="label">5 Unique Concepts</span>
+    <h2>Design Variations</h2>
+    <p>Click any design to view the full homepage concept with all sections, interactions, and responsive layout.</p>
+  </div>
+
+  <div class="designs-grid">
+
+    <!-- V1 -->
+    <div class="design-card">
+      <div class="card-preview">
+        <img class="image-img img-bridal img-portrait" src="images/nepali-upscaled/index-card-01.jpg" alt="Adult Nepali woman with luxury bridal makeup for Ivory Bridal Luxe variation" loading="lazy">
+        <span class="card-badge">Variation 1</span>
+      </div>
+      <div class="card-body">
+        <h3>Ivory Bridal Luxe</h3>
+        <span class="tagline">Luxury bridal, elegant, soft, classic</span>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#FAF7F2"></div>
+          <div class="swatch" style="background:#C9A96E"></div>
+          <div class="swatch" style="background:#E8D5C4"></div>
+          <div class="swatch" style="background:#D4C5B2"></div>
+          <div class="swatch" style="background:#2D2926"></div>
+        </div>
+        <div class="card-tags">
+          <span>Bridal</span><span>Premium</span><span>Gold Accents</span><span>Serif</span>
+        </div>
+        <p>High-end bridal beauty studio with champagne gold accents, elegant serif typography, and premium service presentation.</p>
+        <a href="v1.html" class="card-btn primary">View Full Design →</a>
+      </div>
+    </div>
+
+    <!-- V2 -->
+    <div class="design-card">
+      <div class="card-preview">
+        <img class="image-img img-soft img-portrait" src="images/nepali-upscaled/index-card-02.jpg" alt="Adult Nepali woman with soft glow makeup for Korean Soft Glow variation" loading="lazy">
+        <span class="card-badge">Variation 2</span>
+      </div>
+      <div class="card-body">
+        <h3>Korean Soft Glow</h3>
+        <span class="tagline">Minimal, calm, clean beauty, natural</span>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#FDFBF7"></div>
+          <div class="swatch" style="background:#F0E6DA"></div>
+          <div class="swatch" style="background:#C4A882"></div>
+          <div class="swatch" style="background:#D4B5A0"></div>
+          <div class="swatch" style="background:#3D2E22"></div>
+        </div>
+        <div class="card-tags">
+          <span>Korean</span><span>Minimal</span><span>Clean</span><span>Calm</span>
+        </div>
+        <p>Peaceful Korean-inspired beauty studio with maximum whitespace, soft rounded elements, and gentle natural aesthetics.</p>
+        <a href="v2.html" class="card-btn primary">View Full Design →</a>
+      </div>
+    </div>
+
+    <!-- V3 -->
+    <div class="design-card">
+      <div class="card-preview">
+        <img class="image-img img-bridal img-portrait" src="images/nepali-upscaled/index-card-03.jpg" alt="Adult Nepali woman with champagne bridal makeup for minimal bridal variation" loading="lazy">
+        <span class="card-badge">Variation 3</span>
+      </div>
+      <div class="card-body">
+        <h3>Champagne Minimal Bridal</h3>
+        <span class="tagline">Refined bridal meets modern minimalism</span>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#F5F0E8"></div>
+          <div class="swatch" style="background:#C9A96E"></div>
+          <div class="swatch" style="background:#B8A08A"></div>
+          <div class="swatch" style="background:#F8F5EF"></div>
+          <div class="swatch" style="background:#1E1814"></div>
+        </div>
+        <div class="card-tags">
+          <span>Champagne</span><span>Bridal</span><span>Modern</span><span>Split Layout</span>
+        </div>
+        <p>Perfect balance of bridal luxury and clean minimalism with split-screen layouts, thin typography, and refined accents.</p>
+        <a href="v3.html" class="card-btn primary">View Full Design →</a>
+      </div>
+    </div>
+
+    <!-- V4 -->
+    <div class="design-card">
+      <div class="card-preview">
+        <img class="image-img img-party img-portrait" src="images/nepali-upscaled/index-card-04.jpg" alt="Adult Nepali woman with modern soft glam makeup for clean glam variation" loading="lazy">
+        <span class="card-badge">Variation 4</span>
+      </div>
+      <div class="card-body">
+        <h3>Modern Clean Glam</h3>
+        <span class="tagline">Contemporary, stylish, softly glamorous</span>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#FFF9F5"></div>
+          <div class="swatch" style="background:#D4A574"></div>
+          <div class="swatch" style="background:#F0E0D0"></div>
+          <div class="swatch" style="background:#E8C4B0"></div>
+          <div class="swatch" style="background:#1A1A1A"></div>
+        </div>
+        <div class="card-tags">
+          <span>Modern</span><span>Rose Gold</span><span>Social</span><span>Glam</span>
+        </div>
+        <p>Younger and more modern design with rose gold accents, Instagram-ready gallery, bold asymmetric layouts, and stylish CTAs.</p>
+        <a href="v4.html" class="card-btn primary">View Full Design →</a>
+      </div>
+    </div>
+
+    <!-- V5 -->
+    <div class="design-card">
+      <div class="card-preview">
+        <img class="image-img img-bridal img-portrait" src="images/nepali-upscaled/index-card-05.jpg" alt="Adult Nepali woman with calm premium beauty styling for luxury lounge variation" loading="lazy">
+        <span class="card-badge">Variation 5</span>
+      </div>
+      <div class="card-body">
+        <h3>Calm Luxury Beauty Lounge</h3>
+        <span class="tagline">Spa-luxury, relaxing, professional, clean</span>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#F7F4EE"></div>
+          <div class="swatch" style="background:#A8B5A0"></div>
+          <div class="swatch" style="background:#C9B896"></div>
+          <div class="swatch" style="background:#F0EBE3"></div>
+          <div class="swatch" style="background:#2C261F"></div>
+        </div>
+        <div class="card-tags">
+          <span>Spa</span><span>Sage</span><span>Calm</span><span>Lounge</span>
+        </div>
+        <p>Premium beauty lounge atmosphere with sage-beige tones, focus on comfort, hygiene, and a relaxing professional experience.</p>
+        <a href="v5.html" class="card-btn primary">View Full Design →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="recommendation">
+  <h2>Our Recommendation</h2>
+  <p>For a Makeup & Nail Studio targeting bridal and premium clients, <strong>Variation 3: Champagne Minimal Bridal</strong> offers the perfect balance — luxury bridal trust with modern Korean-inspired cleanliness. It appeals to both wedding clients and everyday beauty seekers.</p>
+  <a href="v3.html" class="rec-badge">✦ View Recommended Design</a>
+</section>
+
+<div class="sel-footer">© 2026 Luxe Beauty Studio — Design Direction Showcase</div>
+
+</body>
+</html>
